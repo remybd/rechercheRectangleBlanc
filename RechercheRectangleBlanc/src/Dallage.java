@@ -77,8 +77,8 @@ public class Dallage {
 		    			 for (int j = 0; j < this.nbColonnes; j++){
 		    				 
 		    				 if(Integer.parseInt(tabLine[j]) == 1)
-		    					 dallage[i][j] = true;
-		    				 else dallage[i][j] = false;
+		    					 dallage[i][j] = false;
+		    				 else dallage[i][j] = true;
 		    			 }
 		    			 
 		    			 line = lecteurAvecBuffer.readLine();
@@ -117,8 +117,8 @@ public class Dallage {
 			result.append("|");
 			for (int j = 0; j < this.nbColonnes; j++){
 				if(dallage[i][j])
-					result.append("1");
-				else result.append("0");
+					result.append("0");
+				else result.append("1");
 				
 				result.append("|");
 			}

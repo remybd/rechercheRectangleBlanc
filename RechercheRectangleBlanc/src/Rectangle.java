@@ -5,12 +5,14 @@ public class Rectangle {
 	private int numColonne = 0;
 	private int hauteur = 0;
 	private int largeur = 0;
+	private int aire = 0;
 	
 	public Rectangle(int x, int y, int h, int l){
 		this.numLigne = x;
 		this.numColonne = y;
 		this.hauteur = h;
 		this.largeur = l;
+		this.aire = h*l;
 	}
 	
 	
@@ -19,12 +21,14 @@ public class Rectangle {
 		
 		int i = this.numLigne;
 		int j ;
-		boolean fullWhite = false;
+		boolean fullWhite = true;
+		int limiteHauteur = this.numLigne + this.hauteur;
+		int limiteLargeur = this.numColonne + this.largeur;
 		
-		while ( fullWhite && i < this.hauteur){
+		while ( fullWhite && i < limiteHauteur){
 			j = this.numColonne;
 			
-			while ( fullWhite && j < this.largeur ){
+			while ( fullWhite && j < limiteLargeur ){
 				fullWhite = dallage[i][j];
 				j++;
 			}
@@ -33,4 +37,37 @@ public class Rectangle {
 		
 		return fullWhite;
 	}
+
+
+
+	public int getNumLigne() {
+		return numLigne;
+	}
+
+
+
+	public int getNumColonne() {
+		return numColonne;
+	}
+
+
+
+	public int getHauteur() {
+		return hauteur;
+	}
+
+
+
+	public int getLargeur() {
+		return largeur;
+	}
+
+
+
+	public int getAire() {
+		return aire;
+	}
+	
+	
+	
 }
