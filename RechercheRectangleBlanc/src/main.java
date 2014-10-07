@@ -9,16 +9,61 @@ public class main {
 		// TODO Auto-generated method stub
 
 		try {
-			Dallage d1 = new Dallage("fichiersTest/doubleDiagonale.txt");
+			Dallage d1 = new Dallage("fichiersTest/noirDernier.txt");
 			
 			System.out.println(d1.toString());
 			System.out.println();
-			System.out.println(solution1(d1));
+			System.out.println(solution2(d1));
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ErrorInFileException exc) {}
+	}
+	
+	
+	
+	
+	public static String solution2 (Dallage dallage){
+		
+		Rectangle rMax = new Rectangle(0, 0, 0, 0);
+		Rectangle r;
+		int largeur;
+		int hauteur;
+		int y ;
+		int limiteColonne;
+		boolean [][] tableau = dallage.getDallage();
+		
+		//pour chaques cases du dallage
+		for (int i = 0; i < dallage.getNbLignes(); i++)
+			for(int j = 0; j < dallage.getNbColonnes(); j++){
+				
+				
+				y = j;
+				hauteur = 1;
+				limiteColonne = dallage.getNbColonnes();
+				//parcours de toutes les cases gauches du rectangle
+				for (int x = i; x < dallage.getNbLignes(); x++){
+					while (y < limiteColonne && tableau[x][y])
+						y++;
+					
+					if(limiteColonne > y){//j'ai rencontré une case noire
+						limiteColonne = y-1;
+					}
+					largeur = y-j;
+					
+					if(rMax.getAire() < (hauteur*largeur))
+							rMax = new Rectangle (i,j,hauteur,largeur);
+					
+					hauteur ++;
+					y = j;
+				}
+
+			}
+				
+		return "x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
+				+ "aire = " + rMax.getAire();
 	}
 	
 	
