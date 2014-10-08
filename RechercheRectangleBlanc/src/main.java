@@ -9,7 +9,7 @@ public class main {
 		// TODO Auto-generated method stub
 
 		try {
-			Dallage d1 = new Dallage("fichiersTest/noirDernier.txt");
+			Dallage d1 = new Dallage("fichiersTest/exemple1.txt");
 			
 			System.out.println(d1.toString());
 			System.out.println();
@@ -48,9 +48,9 @@ public class main {
 						y++;
 					
 					if(limiteColonne > y){//j'ai rencontré une case noire
-						limiteColonne = y-1;
+						limiteColonne = y;
 					}
-					largeur = y-j;
+					largeur = y-j ;
 					
 					if(rMax.getAire() < (hauteur*largeur))
 							rMax = new Rectangle (i,j,hauteur,largeur);
