@@ -9,11 +9,11 @@ public class main {
 		// TODO Auto-generated method stub
 
 		try {
-			Dallage d1 = new Dallage("fichiersTest/exemple1.txt");
+			Dallage d1 = new Dallage("fichiersTest/fullNoir.txt");
 			
 			System.out.println(d1.toString());
 			System.out.println();
-			System.out.println(solution2(d1));
+			System.out.println(solution3(d1));
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -24,10 +24,58 @@ public class main {
 	
 	
 	
+	public static String solution3 (Dallage dallage){
+		
+		Rectangle rMax = new Rectangle(0, 0, 0, 0);
+		boolean tableauDallage[][] = dallage.getDallage();
+		int hauteurs[] = new int[dallage.getNbColonnes()];
+		Rectangle rMaxLigne;
+		int hauteurMin;
+		int largeur;
+		
+		//initialisation du tableau des hauteurs
+		for(int j = 0; j < dallage.getNbColonnes(); j++){
+			hauteurs[j] = 0;
+		}
+		
+		//pour chaques cases du dallage
+		for (int i = 0; i < dallage.getNbLignes(); i++){
+			
+			for(int j = 0; j < dallage.getNbColonnes(); j++){
+				if(tableauDallage[i][j])
+					hauteurs[j] ++;
+				else
+					hauteurs[j] = 0;
+			}	
+				
+			hauteurMin = hauteurs[0];
+			rMaxLigne = new Rectangle(0, 0, 0, 0);
+			for (int k = 0; k < dallage.getNbColonnes(); k++){
+				for (int l = k; l < dallage.getNbColonnes(); l++){
+					
+					if(hauteurs[l] < hauteurMin )
+						hauteurMin = hauteurs[l];
+					
+					largeur = l-k +1;
+					if(rMax.getAire() < (hauteurMin*largeur))
+						rMax = new Rectangle (i-hauteurMin+1,k,hauteurMin,largeur);
+				}
+				hauteurMin = hauteurs[0];
+			}
+		}	
+			
+		return "x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
+				+ "aire = " + rMax.getAire();
+	}
+
+	
+	
+	
+	
 	public static String solution2 (Dallage dallage){
 		
 		Rectangle rMax = new Rectangle(0, 0, 0, 0);
-		Rectangle r;
 		int largeur;
 		int hauteur;
 		int y ;
@@ -94,5 +142,6 @@ public class main {
 				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
 				+ "aire = " + rMax.getAire();
 	}
+	
 
 }
