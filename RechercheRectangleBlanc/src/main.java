@@ -29,7 +29,6 @@ public class main {
 		Rectangle rMax = new Rectangle(0, 0, 0, 0);
 		boolean tableauDallage[][] = dallage.getDallage();
 		int hauteurs[] = new int[dallage.getNbColonnes()];
-		Rectangle rMaxLigne;
 		int hauteurMin;
 		int largeur;
 		
@@ -49,7 +48,6 @@ public class main {
 			}	
 				
 			hauteurMin = hauteurs[0];
-			rMaxLigne = new Rectangle(0, 0, 0, 0);
 			for (int k = 0; k < dallage.getNbColonnes(); k++){
 				for (int l = k; l < dallage.getNbColonnes(); l++){
 					
