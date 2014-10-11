@@ -27,7 +27,6 @@ public class main {
 	public static String solution2 (Dallage dallage){
 		
 		Rectangle rMax = new Rectangle(0, 0, 0, 0);
-		Rectangle r;
 		int largeur;
 		int hauteur;
 		int y ;
@@ -42,8 +41,9 @@ public class main {
 				y = j;
 				hauteur = 1;
 				limiteColonne = dallage.getNbColonnes();
-				//parcours de toutes les cases gauches du rectangle
+				//parcours de la première colonne gauche du rectangle
 				for (int x = i; x < dallage.getNbLignes(); x++){
+					
 					while (y < limiteColonne && tableau[x][y])
 						y++;
 					
