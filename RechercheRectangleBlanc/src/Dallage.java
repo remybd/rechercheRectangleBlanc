@@ -72,19 +72,16 @@ public class Dallage {
 		    		 line = lecteurAvecBuffer.readLine();
 		    		 while ( line != null && i < this.nbLignes){
 		    			 
-		    			 String[] tabLine = line.split("");
-		    			 
 		    			 for (int j = 0; j < this.nbColonnes; j++){
 		    				 
-		    				 if(Integer.parseInt(tabLine[j]) == 1)
+		    				 if(line.charAt(j) == '1')
 		    					 dallage[i][j] = false;
 		    				 else dallage[i][j] = true;
 		    			 }
 		    			 
 		    			 line = lecteurAvecBuffer.readLine();
 		    			 i++;
-		    		 }
-		    		 
+		    		 }		    		 
 		    		 
 		    	} else throw new HeaderFormatException();
 		    	
