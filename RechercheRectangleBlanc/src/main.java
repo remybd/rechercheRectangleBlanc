@@ -9,7 +9,7 @@ public class main {
 		// TODO Auto-generated method stub
 
 		try {
-			Dallage d1 = new Dallage("fichiersTest/fullNoir.txt");
+			Dallage d1 = new Dallage("fichiersTest/blancCentre.txt");
 			
 			System.out.println(d1.toString());
 			System.out.println();
@@ -47,7 +47,7 @@ public class main {
 					hauteurs[j] = 0;
 			}	
 				
-			hauteurMin = hauteurs[0];
+			hauteurMin = dallage.getNbLignes();
 			for (int k = 0; k < dallage.getNbColonnes(); k++){
 				for (int l = k; l < dallage.getNbColonnes(); l++){
 					
@@ -58,13 +58,13 @@ public class main {
 					if(rMax.getAire() < (hauteurMin*largeur))
 						rMax = new Rectangle (i-hauteurMin+1,k,hauteurMin,largeur);
 				}
-				hauteurMin = hauteurs[0];
+				hauteurMin = dallage.getNbLignes();
 			}
 		}	
 			
-		System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+		/*System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
 				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
-				+ "aire = " + rMax.getAire());
+				+ "aire = " + rMax.getAire());*/
 		return rMax;
 	}
 
@@ -108,9 +108,9 @@ public class main {
 
 			}
 				
-		System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+		/*System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
 				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
-				+ "aire = " + rMax.getAire());
+				+ "aire = " + rMax.getAire());*/
 		return rMax;
 	}
 	
@@ -142,9 +142,9 @@ public class main {
 				}
 			}
 				
-		System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+		/*System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
 				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
-				+ "aire = " + rMax.getAire());
+				+ "aire = " + rMax.getAire());*/
 		return rMax;
 	}
 	

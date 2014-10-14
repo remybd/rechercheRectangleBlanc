@@ -1,7 +1,7 @@
 import java.io.IOException;
+import java.util.Random;
 
 import exceptions.ErrorInFileException;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -224,10 +224,18 @@ public class TabTest {
 		assertEquals(rectSo3.getAire(),1);
 	}
 	
-	//@Test
+	@Test
 	public void AllVersionsRandomTest() {
-		for(int i=0; i<50; i++) {
-			Dallage d = new Dallage(8, 8, 50);
+		Random randomGenerator = new Random();
+		int lignes = 0;
+		int colonnes = 0;
+		int pourcentage = 0; 
+		
+		for(int i=0; i<2000; i++) {
+			lignes = randomGenerator.nextInt(50);
+			colonnes = randomGenerator.nextInt(50);
+			pourcentage = randomGenerator.nextInt(100);
+			Dallage d = new Dallage(lignes, colonnes, pourcentage);
 			
 			Rectangle rectSol1 = main.solution1(d);
 			Rectangle rectSol2 = main.solution2(d);
