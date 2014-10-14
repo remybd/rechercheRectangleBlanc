@@ -24,7 +24,7 @@ public class main {
 	
 	
 	
-	public static String solution3 (Dallage dallage){
+	public static Rectangle solution3 (Dallage dallage){
 		
 		Rectangle rMax = new Rectangle(0, 0, 0, 0);
 		boolean tableauDallage[][] = dallage.getDallage();
@@ -62,16 +62,17 @@ public class main {
 			}
 		}	
 			
-		return "x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+		System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
 				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
-				+ "aire = " + rMax.getAire();
+				+ "aire = " + rMax.getAire());
+		return rMax;
 	}
 
 	
 	
 	
 	
-	public static String solution2 (Dallage dallage){
+	public static Rectangle solution2 (Dallage dallage){
 		
 		Rectangle rMax = new Rectangle(0, 0, 0, 0);
 		int largeur;
@@ -107,17 +108,19 @@ public class main {
 
 			}
 				
-		return "x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+		System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
 				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
-				+ "aire = " + rMax.getAire();
+				+ "aire = " + rMax.getAire());
+		return rMax;
 	}
 	
 	
 	
 	
-	public static String solution1 (Dallage dallage){
+	public static Rectangle solution1 (Dallage dallage){
 		
 		Rectangle rMax = new Rectangle(0, 0, 0, 0);
+		Rectangle r;
 		
 		//pour chaques cases du dallage
 		for (int i = 0; i < dallage.getNbLignes(); i++)
@@ -128,17 +131,21 @@ public class main {
 				int lMax = dallage.getNbColonnes() - j;
 				for(int h = 1; h <= hMax; h++ ){
 					for (int l = 1; l <= lMax; l++){
-						Rectangle r = new Rectangle(i,j,h,l);
 						
-						if(r.fullWhite(dallage.getDallage()) && rMax.getAire() < r.getAire())
-							rMax = r;
+						if(rMax.getAire() < h*l){
+							r = new Rectangle(i,j,h,l);
+							
+							if(r.fullWhite(dallage.getDallage()))
+								rMax = r;
+						}
 					}
 				}
 			}
 				
-		return "x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+		System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
 				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
-				+ "aire = " + rMax.getAire();
+				+ "aire = " + rMax.getAire());
+		return rMax;
 	}
 	
 

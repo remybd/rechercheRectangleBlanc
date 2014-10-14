@@ -81,8 +81,7 @@ public class Dallage {
 		    			 
 		    			 line = lecteurAvecBuffer.readLine();
 		    			 i++;
-		    		 }	
-		    		 
+		    		 }		    		 
 		    		 
 		    	} else throw new HeaderFormatException();
 		    	
