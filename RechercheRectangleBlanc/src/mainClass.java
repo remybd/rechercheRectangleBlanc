@@ -3,7 +3,7 @@ import java.io.IOException;
 import exceptions.ErrorInFileException;
 
 
-public class main {
+public class mainClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -24,7 +24,7 @@ public class main {
 	
 	
 	
-	public static String solution1 (Dallage dallage){
+	public static Rectangle solution1 (Dallage dallage){
 		
 		Rectangle rMax = new Rectangle(0, 0, 0, 0);
 		Rectangle r;
@@ -49,9 +49,10 @@ public class main {
 				}
 			}
 				
-		return "x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+		System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
 				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
-				+ "aire = " + rMax.getAire();
+				+ "aire = " + rMax.getAire());
+		return rMax;
 	}
 
 }
