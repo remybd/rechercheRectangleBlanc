@@ -30,6 +30,7 @@ public class main {
 		int largeur;
 		int hauteur;
 		int y ;
+		int x;
 		int limiteColonne;
 		boolean [][] tableau = dallage.getDallage();
 		
@@ -39,10 +40,11 @@ public class main {
 				
 				
 				y = j;
+				x = i;
 				hauteur = 1;
 				limiteColonne = dallage.getNbColonnes();
 				//parcours de la première colonne gauche du rectangle
-				for (int x = i; x < dallage.getNbLignes(); x++){
+				while ( x < dallage.getNbLignes() && tableau[x][y]){
 					
 					while (y < limiteColonne && tableau[x][y])
 						y++;
@@ -57,8 +59,9 @@ public class main {
 					
 					hauteur ++;
 					y = j;
+					x++;
 				}
-
+				
 			}
 				
 		return "x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
