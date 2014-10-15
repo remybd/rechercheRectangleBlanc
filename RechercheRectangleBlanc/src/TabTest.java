@@ -245,4 +245,62 @@ public class TabTest {
 			assertEquals(rectSol2.getAire(), rectSol3.getAire());
 		}
 	}
+	
+	@Test
+	public void AllVersionsRandomTest1() {
+		Random randomGenerator = new Random();
+		int lignes = 0;
+		int colonnes = 0;
+		int pourcentage = 0; 
+		
+		for(int i=0; i<10; i++) {
+			lignes = randomGenerator.nextInt(50);
+			colonnes = randomGenerator.nextInt(50);
+			pourcentage = randomGenerator.nextInt(100);
+			Dallage d = new Dallage(200, 200, 80);
+			
+			Rectangle rectSol1 = main.solution1(d);
+
+			assertEquals(rectSol1.getAire(), rectSol1.getAire());
+		}
+	}
+	
+	@Test
+	public void AllVersionsRandomTest2() {
+		Random randomGenerator = new Random();
+		int lignes = 0;
+		int colonnes = 0;
+		int pourcentage = 0; 
+		
+		for(int i=0; i<10; i++) {
+			lignes = randomGenerator.nextInt(50);
+			colonnes = randomGenerator.nextInt(50);
+			pourcentage = randomGenerator.nextInt(100);
+			Dallage d = new Dallage(200, 200, 80);
+			
+			Rectangle rectSol2 = main.solution2(d);
+
+			assertEquals(rectSol2.getAire(), rectSol2.getAire());
+		}
+	}
+	
+	
+	@Test
+	public void AllVersionsRandomTest3() {
+		Random randomGenerator = new Random();
+		int lignes = 0;
+		int colonnes = 0;
+		int pourcentage = 0; 
+		
+		for(int i=0; i<10; i++) {
+			lignes = randomGenerator.nextInt(50);
+			colonnes = randomGenerator.nextInt(50);
+			pourcentage = randomGenerator.nextInt(100);
+			Dallage d = new Dallage(200, 200, 50);
+			
+			Rectangle rectSol3 = main.solution3(d);
+
+			assertEquals(rectSol3.getAire(), rectSol3.getAire());
+		}
+	}
 }
