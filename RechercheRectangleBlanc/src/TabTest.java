@@ -257,7 +257,7 @@ public class TabTest {
 			lignes = randomGenerator.nextInt(50);
 			colonnes = randomGenerator.nextInt(50);
 			pourcentage = randomGenerator.nextInt(100);
-			Dallage d = new Dallage(200, 200, 80);
+			Dallage d = new Dallage(200, 200, 50);
 			
 			Rectangle rectSol1 = main.solution1(d);
 
@@ -276,7 +276,7 @@ public class TabTest {
 			lignes = randomGenerator.nextInt(50);
 			colonnes = randomGenerator.nextInt(50);
 			pourcentage = randomGenerator.nextInt(100);
-			Dallage d = new Dallage(200, 200, 80);
+			Dallage d = new Dallage(200, 200, 99);
 			
 			Rectangle rectSol2 = main.solution2(d);
 
@@ -296,7 +296,7 @@ public class TabTest {
 			lignes = randomGenerator.nextInt(50);
 			colonnes = randomGenerator.nextInt(50);
 			pourcentage = randomGenerator.nextInt(100);
-			Dallage d = new Dallage(200, 200, 50);
+			Dallage d = new Dallage(200, 200, 99);
 			
 			Rectangle rectSol3 = main.solution3(d);
 
