@@ -262,14 +262,14 @@ public class RectangleTest {
 		assertEquals(rectSo4.getAire(),1);
 	}
 	
-	//@Test
+	@Test
 	public void AllVersionsRandomTest() {
 		Random randomGenerator = new Random();
 		int lignes = 0;
 		int colonnes = 0;
 		int pourcentage = 0; 
 		
-		for(int i=0; i<2000; i++) {
+		for(int i=0; i<20; i++) {
 			lignes = randomGenerator.nextInt(50) + 1;
 			colonnes = randomGenerator.nextInt(50) + 1;
 			pourcentage = randomGenerator.nextInt(100);
