@@ -270,8 +270,8 @@ public class RectangleTest {
 		int pourcentage = 0; 
 		
 		for(int i=0; i<20; i++) {
-			lignes = randomGenerator.nextInt(50) + 1;
-			colonnes = randomGenerator.nextInt(50) + 1;
+			lignes = randomGenerator.nextInt(10) + 1;
+			colonnes = randomGenerator.nextInt(10) + 1;
 			pourcentage = randomGenerator.nextInt(100);
 			System.out.println("Nombre de lignes : " + lignes);
 			System.out.println("Nombre de colonnes : " + colonnes);
@@ -287,10 +287,10 @@ public class RectangleTest {
 			assertEquals(rectSol1.getAire(), rectSol2.getAire());
 			assertEquals(rectSol1.getAire(), rectSol3.getAire());
 			
-			//if(rectSol1.getAire()!= rectSol4.getAire()){
-			//	d.toString();
-			//	break;
-			//}
+			if(rectSol1.getAire()!= rectSol4.getAire()){
+				System.out.println(rectSol1.getAire() + "   " +  rectSol4.getAire() + "    " + rectSol4.getNumLigne() + "  " + rectSol4.getNumColonne() + "   " + rectSol4.getHauteur() + "   " + rectSol4.getLargeur() );
+				System.out.println(d.toString());
+			}
 			assertEquals(rectSol1.getAire(), rectSol4.getAire());
 			
 			
