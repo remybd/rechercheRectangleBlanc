@@ -21,4 +21,14 @@ public class Pile {
 		this.top = this.top.getNextCell();
 		return objectToReturn;
 	}
+	
+	public String toString() {
+		String res = "";
+		Cell temp = this.top;
+		while(temp != null) {
+			res += temp.getContenu().toString() + " - ";
+			temp = temp.getNextCell();
+		}
+		return res;
+	}
 }

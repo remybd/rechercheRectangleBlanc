@@ -16,4 +16,8 @@ public class RectangleOuvert {
 	public int getHauteur() {
 		return this.hauteur;
 	}
+	
+	public String toString() {
+		return "Colonne debut = "+this.colonneDebut+" - hauteur = "+this.hauteur;
+	}
 }

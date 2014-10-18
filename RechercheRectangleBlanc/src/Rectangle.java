@@ -68,6 +68,10 @@ public class Rectangle {
 		return aire;
 	}
 	
-	
+	public String toString() {
+		return "x = " + this.getNumLigne() + " et y = " + this.getNumColonne() + "\n"
+				+ "hauteur = " + this.getHauteur() + " et largeur = " + this.getLargeur() + "\n"
+				+ "aire = " + this.getAire();
+	}
 	
 }
