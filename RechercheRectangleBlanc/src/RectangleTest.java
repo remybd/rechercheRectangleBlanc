@@ -48,6 +48,8 @@ public class RectangleTest {
 		
 		Rectangle rectSo4 = main.solution4(d1);
 		assertEquals(rectSo4.getAire(),0);
+		
+		
 	}
 	
 	@Test
@@ -66,6 +68,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),15);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),15);
 	}
 	
 	@Test
@@ -84,6 +89,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),1);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),1);
 	}
 	
 	@Test
@@ -102,6 +110,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),30);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),30);
 	}
 	
 	@Test
@@ -120,6 +131,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),1);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),1);
 	}
 	
 	@Test
@@ -138,6 +152,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),30);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),30);
 	}
 	
 	@Test
@@ -156,6 +173,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),1);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),1);
 	}
 	
 	@Test
@@ -174,6 +194,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),6);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),6);
 	}
 	
 	@Test
@@ -192,6 +215,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),1);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),1);
 	}
 	
 	@Test
@@ -210,6 +236,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),3);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),3);
 	}
 	
 	@Test
@@ -228,6 +257,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),1);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),1);
 	}
 	
 	@Test
@@ -258,7 +290,7 @@ public class RectangleTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void AllVersionsRandomTest1() {
 		Random randomGenerator = new Random();
 		int lignes = 0;
@@ -277,7 +309,7 @@ public class RectangleTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void AllVersionsRandomTest2() {
 		Random randomGenerator = new Random();
 		int lignes = 0;
@@ -297,7 +329,7 @@ public class RectangleTest {
 	}
 	
 	
-	@Test
+	//@Test
 	public void AllVersionsRandomTest3() {
 		Random randomGenerator = new Random();
 		int lignes = 0;

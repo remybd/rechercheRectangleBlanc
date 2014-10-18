@@ -1,8 +1,8 @@
 
 public class RectangleOuvert {
 
-	int colonneDebut;
-	int hauteur;
+	private int colonneDebut;
+	private int hauteur;
 	
 	public RectangleOuvert(int colonneDebut, int hauteur) {
 		this.colonneDebut = colonneDebut;
