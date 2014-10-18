@@ -1,38 +1,24 @@
-
-
 public class Pile {
 	
-	private int size;
-	private int top;
-	private Object[] list;
+	private Cell top;
 	
-	public Pile(int size) {
-		this.size = size;
-		this.top = 0;
-		this.list = new Object[size];
+	public Pile() {
+		this.top = null;
 	}
 	
 	public boolean estVide() {
-		return this.top == 0;
-	}
-	
-	public boolean estPleine() {
-		return this.top == this.size-1;
+		return this.top == null;
 	}
 	
 	public void push(Object value) {
-		if(estPleine()) {
-			throw new RuntimeException("Impossible d'ajouter une valeur, la pile est pleine");
-		}
-		this.top++;
-		this.list[this.top] = value;
+		this.top = new Cell(value, this.top);
 	}
 	
 	public Object pop() {
-		if(this.estVide()) {
-			throw new RuntimeException("Impossible de récupérer une valeur, la pile est vide");
-		}
-		this.top--;
-		return this.list[this.top + 1];
+		if(this.estVide())
+			throw new RuntimeException("Récupération du dernière élément sur une pile vide");
+		Object objectToReturn = this.top.getContenu();
+		this.top = this.top.getNextCell();
+		return objectToReturn;
 	}
 }
