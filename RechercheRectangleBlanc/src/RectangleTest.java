@@ -263,22 +263,46 @@ public class RectangleTest {
 	}
 	
 	@Test
+	public void debug() throws IOException, ErrorInFileException {
+		Dallage d1 = new Dallage("fichiersTest/debug.txt");
+		
+		Rectangle rectSol = main.solution1(d1);
+		assertEquals(rectSol.getNumLigne(),1);
+		assertEquals(rectSol.getNumColonne(),0);
+		assertEquals(rectSol.getHauteur(),7);
+		assertEquals(rectSol.getLargeur(),2);
+		assertEquals(rectSol.getAire(),14);
+		
+		Rectangle rectSo2 = main.solution2(d1);
+		assertEquals(rectSo2.getAire(),14);
+		
+		Rectangle rectSo3 = main.solution3(d1);
+		assertEquals(rectSo3.getAire(),14);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),14);
+	}
+	
+	@Test
 	public void AllVersionsRandomTest() {
+
 		Random randomGenerator = new Random();
 		int lignes = 0;
 		int colonnes = 0;
 		int pourcentage = 0; 
 		
 		for(int i=0; i<20; i++) {
-			lignes = randomGenerator.nextInt(50) + 1;
-			colonnes = randomGenerator.nextInt(50) + 1;
+			
+			lignes = randomGenerator.nextInt(10) + 1;
+			colonnes = randomGenerator.nextInt(10) + 1;
 			pourcentage = randomGenerator.nextInt(100);
 			System.out.println("Nombre de lignes : " + lignes);
 			System.out.println("Nombre de colonnes : " + colonnes);
 			System.out.println("Pourcentage : " + pourcentage);
 
 			Dallage d = new Dallage(lignes, colonnes, pourcentage);
-			
+			System.out.println(d.toString());
+
 			Rectangle rectSol1 = main.solution1(d);
 			Rectangle rectSol2 = main.solution2(d);
 			Rectangle rectSol3 = main.solution3(d);
@@ -286,14 +310,11 @@ public class RectangleTest {
 
 			assertEquals(rectSol1.getAire(), rectSol2.getAire());
 			assertEquals(rectSol1.getAire(), rectSol3.getAire());
-			
-			//if(rectSol1.getAire()!= rectSol4.getAire()){
-			//	d.toString();
-			//	break;
-			//}
+		
 			assertEquals(rectSol1.getAire(), rectSol4.getAire());
-			
-			
+			System.out.println("Aire attendu = "+rectSol1.getAire());
+			System.out.println("Aire obtenu = "+rectSol3.getAire());
+
 		}
 	}
 	
