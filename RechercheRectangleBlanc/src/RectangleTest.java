@@ -24,6 +24,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),20);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),20);
 	}
 	
 	@Test
@@ -42,6 +45,9 @@ public class RectangleTest {
 		
 		Rectangle rectSo3 = main.solution3(d1);
 		assertEquals(rectSo3.getAire(),0);
+		
+		Rectangle rectSo4 = main.solution4(d1);
+		assertEquals(rectSo4.getAire(),0);
 	}
 	
 	@Test
@@ -232,17 +238,23 @@ public class RectangleTest {
 		int pourcentage = 0; 
 		
 		for(int i=0; i<2000; i++) {
-			lignes = randomGenerator.nextInt(50);
-			colonnes = randomGenerator.nextInt(50);
+			lignes = randomGenerator.nextInt(50) + 1;
+			colonnes = randomGenerator.nextInt(50) + 1;
 			pourcentage = randomGenerator.nextInt(100);
+			System.out.println("Nombre de lignes : " + lignes);
+			System.out.println("Nombre de colonnes : " + colonnes);
+			System.out.println("Pourcentage : " + pourcentage);
+
 			Dallage d = new Dallage(lignes, colonnes, pourcentage);
 			
 			Rectangle rectSol1 = main.solution1(d);
 			Rectangle rectSol2 = main.solution2(d);
 			Rectangle rectSol3 = main.solution3(d);
+			Rectangle rectSol4 = main.solution4(d);
 
 			assertEquals(rectSol1.getAire(), rectSol2.getAire());
 			assertEquals(rectSol2.getAire(), rectSol3.getAire());
+			assertEquals(rectSol3.getAire(), rectSol4.getAire());
 		}
 	}
 	
