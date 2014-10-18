@@ -49,15 +49,19 @@ public class main {
 				else
 					hauteurs[j] = 0;
 				
+				//traitement des rectangles ouverts
 				if(hauteurPrecedente < hauteurs[j]) {
 					pile.push(new RectangleOuvert(j, hauteurs[j]));
 				}
 				else if(hauteurPrecedente > hauteurs[j]) {
 					System.out.println("boucle");
 
-					RectangleOuvert lastRect = (RectangleOuvert) pile.pop();
+					RectangleOuvert lastRect = null;
+					if(!pile.estVide())
+						lastRect = (RectangleOuvert) pile.pop();
+					
 					//fermeture de tous les rectangles ouvert avec une hauteur trop grande
-					while(lastRect.getHauteur() > hauteurs[j]) {
+					while(!pile.estVide() && lastRect.getHauteur() > hauteurs[j]) {
 						int largeurRectangle = j-lastRect.getColonneDebut();
 						System.out.println("Hauteur du dernier rectangle : " + lastRect.getHauteur());
 						System.out.println("Largeur du dernier rectangle : " + largeurRectangle);
@@ -72,7 +76,6 @@ public class main {
 							lastRect = (RectangleOuvert) pile.pop();
 							pile.push(lastRect);
 						}
-						else break;
 					}
 				}
 				hauteurPrecedente = hauteurs[j];
