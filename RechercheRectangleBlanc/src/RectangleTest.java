@@ -289,12 +289,6 @@ public class RectangleTest {
 
 			assertEquals(rectSol1.getAire(), rectSol2.getAire());
 			assertEquals(rectSol1.getAire(), rectSol3.getAire());
-			
-			if(rectSol1.getAire()!= rectSol4.getAire()){
-				System.out.println(rectSol1.getAire() + "   " +  rectSol4.getAire() + "    " + rectSol4.getNumLigne() + "  " + rectSol4.getNumColonne() + "   " + rectSol4.getHauteur() + "   " + rectSol4.getLargeur() );
-				System.out.println(d.toString());
-			}
-		
 			assertEquals(rectSol1.getAire(), rectSol4.getAire());
 			
 			
