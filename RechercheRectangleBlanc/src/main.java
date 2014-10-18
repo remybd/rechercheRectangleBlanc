@@ -58,7 +58,7 @@ public class main {
 					RectangleOuvert lastRect = (RectangleOuvert) pile.pop();
 					//fermeture de tous les rectangles ouvert avec une hauteur trop grande
 					while(lastRect.getHauteur() > hauteurs[j]) {
-						int largeurRectangle = j-lastRect.getColonneDebut()-1;
+						int largeurRectangle = j-lastRect.getColonneDebut();
 						System.out.println("Hauteur du dernier rectangle : " + lastRect.getHauteur());
 						System.out.println("Largeur du dernier rectangle : " + largeurRectangle);
 						
@@ -68,8 +68,11 @@ public class main {
 							rMax = new Rectangle (i,lastRect.getColonneDebut(),hauteurs[j],largeurRectangle);
 						}
 						
-						lastRect = (RectangleOuvert) pile.pop();
-						pile.push(lastRect);
+						if(!pile.estVide()){
+							lastRect = (RectangleOuvert) pile.pop();
+							pile.push(lastRect);
+						}
+						else break;
 					}
 				}
 				hauteurPrecedente = hauteurs[j];
