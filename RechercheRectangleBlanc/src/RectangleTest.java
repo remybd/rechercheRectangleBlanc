@@ -258,7 +258,7 @@ public class RectangleTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void AllVersionsRandomTest1() {
 		Random randomGenerator = new Random();
 		int lignes = 0;
@@ -277,7 +277,7 @@ public class RectangleTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void AllVersionsRandomTest2() {
 		Random randomGenerator = new Random();
 		int lignes = 0;
@@ -297,7 +297,7 @@ public class RectangleTest {
 	}
 	
 	
-	@Test
+	//@Test
 	public void AllVersionsRandomTest3() {
 		Random randomGenerator = new Random();
 		int lignes = 0;
