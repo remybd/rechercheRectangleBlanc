@@ -57,6 +57,7 @@ public class main {
 					System.out.println("boucle");
 
 					RectangleOuvert lastRect = null;
+					RectangleOuvert lastRectSoBig = null;
 					if(!pile.estVide()){
 						lastRect = (RectangleOuvert) pile.pop();
 					
@@ -73,11 +74,16 @@ public class main {
 							}
 							
 							if(!pile.estVide()){
+								lastRectSoBig = lastRect;
 								lastRect = (RectangleOuvert) pile.pop();
-								pile.push(lastRect);
 							}
 							else break;
 						}
+						if(!pile.estVide()){
+							pile.push(lastRect);
+							pile.push(new RectangleOuvert(lastRectSoBig.getColonneDebut(), hauteurs[j]));
+						}
+						
 					}
 				}
 				hauteurPrecedente = hauteurs[j];

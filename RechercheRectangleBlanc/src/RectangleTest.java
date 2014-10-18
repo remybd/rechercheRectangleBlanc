@@ -285,8 +285,15 @@ public class RectangleTest {
 			Rectangle rectSol4 = main.solution4(d);
 
 			assertEquals(rectSol1.getAire(), rectSol2.getAire());
-			assertEquals(rectSol2.getAire(), rectSol3.getAire());
-			assertEquals(rectSol3.getAire(), rectSol4.getAire());
+			assertEquals(rectSol1.getAire(), rectSol3.getAire());
+			
+			//if(rectSol1.getAire()!= rectSol4.getAire()){
+			//	d.toString();
+			//	break;
+			//}
+			assertEquals(rectSol1.getAire(), rectSol4.getAire());
+			
+			
 		}
 	}
 	
