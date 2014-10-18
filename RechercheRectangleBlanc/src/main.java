@@ -72,7 +72,7 @@ public class main {
 							//test si le rectangle fermé est le plus grand
 							if(rMax.getAire() < (lastRect.getHauteur()*largeurRectangle)){
 							//	System.out.println("ajout rectangle ouvert");
-								rMax = new Rectangle (i,lastRect.getColonneDebut(),lastRect.getHauteur(),largeurRectangle);
+								rMax = new Rectangle (i-lastRect.getHauteur()+1,lastRect.getColonneDebut(),lastRect.getHauteur(),largeurRectangle);
 							}
 							lastRectSoBig = lastRect;
 							
@@ -102,7 +102,7 @@ public class main {
 				//test si le rectangle fermé est le plus grand
 				if(rMax.getAire() < (lastRect.getHauteur()*largeurRectangle)){
 					System.out.println("ajout rectangle ouvert");
-					rMax = new Rectangle (i,lastRect.getColonneDebut(),lastRect.getHauteur(),largeurRectangle);
+					rMax = new Rectangle (i-lastRect.getHauteur()+1,lastRect.getColonneDebut(),lastRect.getHauteur(),largeurRectangle);
 				}
 			}
 			
