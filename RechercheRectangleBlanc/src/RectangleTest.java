@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TabTest {
+public class RectangleTest {
 
 	@Test
 	public void testFullBlanc() throws IOException, ErrorInFileException {
