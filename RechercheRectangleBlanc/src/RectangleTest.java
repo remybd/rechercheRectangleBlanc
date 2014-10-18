@@ -269,7 +269,7 @@ public class RectangleTest {
 		int colonnes = 0;
 		int pourcentage = 0; 
 		
-		for(int i=0; i<20; i++) {
+		for(int i=0; i<20000; i++) {
 			lignes = randomGenerator.nextInt(10) + 1;
 			colonnes = randomGenerator.nextInt(10) + 1;
 			
