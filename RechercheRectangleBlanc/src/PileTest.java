@@ -1,3 +1,5 @@
+import static org.junit.Assert.*;
+
 import java.io.IOException;
 import java.util.Random;
 
@@ -22,5 +24,12 @@ public class PileTest {
 		Pile pile = new Pile();
 		
 		pile.pop();
+	}
+	
+	@Test
+	public void PileVideALaCreation() {
+		Pile pile = new Pile();
+		
+		assertTrue(pile.estVide());
 	}
 }
