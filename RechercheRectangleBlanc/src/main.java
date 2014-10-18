@@ -75,17 +75,21 @@ public class main {
 								rMax = new Rectangle (i-lastRect.getHauteur()+1,lastRect.getColonneDebut(),lastRect.getHauteur(),largeurRectangle);
 							}
 							lastRectSoBig = lastRect;
-							
+														
 							if(!pile.estVide()){
 								lastRect = (RectangleOuvert) pile.pop();
 							}
 							else emptyList = true;
 						}
-						if(!pile.estVide()){
+						if(!emptyList){
 							pile.push(lastRect);
+							if(hauteurs[j] > 0 && lastRect.getHauteur() < hauteurs[j]){
+								pile.push(new RectangleOuvert(lastRectSoBig.getColonneDebut(), hauteurs[j]));
+							}
 						}
-						if(hauteurs[j] > 0)
+						else if(hauteurs[j] > 0){
 							pile.push(new RectangleOuvert(lastRectSoBig.getColonneDebut(), hauteurs[j]));
+						}
 						
 					}
 				}
