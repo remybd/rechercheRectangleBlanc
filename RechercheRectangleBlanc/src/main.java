@@ -28,7 +28,7 @@ public class main {
 		int hauteurs[] = new int[dallage.getNbColonnes()];
 		int hauteurMin;
 		int largeur;
-		Pile pile = new Pile(100000);
+		Pile pile = new Pile();
 		
 		//initialisation du tableau des hauteurs
 		for(int j = 0; j < dallage.getNbColonnes(); j++){
@@ -38,7 +38,7 @@ public class main {
 		//pour chaque ligne du dallage
 		for (int i = 0; i < dallage.getNbLignes(); i++){
 			
-			int hauteurPrecedente = -1;
+			int hauteurPrecedente = 0;
 			
 			//pour chaque colonne
 			for(int j = 0; j < dallage.getNbColonnes(); j++){

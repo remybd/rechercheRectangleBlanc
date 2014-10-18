@@ -262,7 +262,7 @@ public class RectangleTest {
 		assertEquals(rectSo4.getAire(),1);
 	}
 	
-	@Test
+	//@Test
 	public void AllVersionsRandomTest() {
 		Random randomGenerator = new Random();
 		int lignes = 0;
