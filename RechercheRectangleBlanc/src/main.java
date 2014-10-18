@@ -54,7 +54,7 @@ public class main {
 					pile.push(new RectangleOuvert(j, hauteurs[j]));
 				}
 				else if(hauteurPrecedente > hauteurs[j]) {
-					System.out.println("boucle");
+					//System.out.println("boucle");
 
 					RectangleOuvert lastRect = null;
 					RectangleOuvert lastRectSoBig = null;
@@ -66,12 +66,12 @@ public class main {
 						//fermeture de tous les rectangles ouvert avec une hauteur trop grande
 						while( !emptyList && lastRect.getHauteur() > hauteurs[j]) {
 							int largeurRectangle = j-lastRect.getColonneDebut();
-							System.out.println("Hauteur du dernier rectangle : " + lastRect.getHauteur());
-							System.out.println("Largeur du dernier rectangle : " + largeurRectangle);
+							//System.out.println("Hauteur du dernier rectangle : " + lastRect.getHauteur());
+							//System.out.println("Largeur du dernier rectangle : " + largeurRectangle);
 							
 							//test si le rectangle fermé est le plus grand
 							if(rMax.getAire() < (lastRect.getHauteur()*largeurRectangle)){
-								System.out.println("ajout rectangle ouvert");
+							//	System.out.println("ajout rectangle ouvert");
 								rMax = new Rectangle (i,lastRect.getColonneDebut(),lastRect.getHauteur(),largeurRectangle);
 							}
 							lastRectSoBig = lastRect;
@@ -96,6 +96,8 @@ public class main {
 			while(!pile.estVide()) {
 				RectangleOuvert lastRect = (RectangleOuvert) pile.pop();
 				int largeurRectangle = dallage.getNbColonnes()-lastRect.getColonneDebut();
+				
+				System.out.println("test" + lastRect.getHauteur() + "    " + largeurRectangle);
 				
 				//test si le rectangle fermé est le plus grand
 				if(rMax.getAire() < (lastRect.getHauteur()*largeurRectangle)){
