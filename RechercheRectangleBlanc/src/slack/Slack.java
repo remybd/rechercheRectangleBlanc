@@ -1,12 +1,14 @@
-public class Pile {
+package slack;
+
+public class Slack {
 	
 	private Cell top;
 	
-	public Pile() {
+	public Slack() {
 		this.top = null;
 	}
 	
-	public boolean estVide() {
+	public boolean isEmpty() {
 		return this.top == null;
 	}
 	
@@ -15,20 +17,20 @@ public class Pile {
 	}
 	
 	public Object pop() {
-		if(this.estVide())
-			throw new RuntimeException("Récupération du dernière élément sur une pile vide");
-		Object objectToReturn = this.top.getContenu();
+		if(this.isEmpty())
+			throw new RuntimeException("Cannot get last element with an empty slack");
+		Object objectToReturn = this.top.getContent();
 		this.top = this.top.getNextCell();
 		return objectToReturn;
 	}
 	
 	public String toString() {
-		String res = "";
+		String res = "BEGIN of Slack\n";
 		Cell temp = this.top;
 		while(temp != null) {
-			res += temp.getContenu().toString() + " - ";
+			res += temp.getContent().toString() + " - ";
 			temp = temp.getNextCell();
 		}
-		return res;
+		return res + "\n" + "END of Slack";
 	}
 }
