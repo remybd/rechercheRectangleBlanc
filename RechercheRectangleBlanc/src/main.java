@@ -11,9 +11,9 @@ public class main {
 		try {
 			Dallage d1 = new Dallage("fichiersTest/blancCentre.txt");
 			
-			System.out.println(d1.toString());
-			System.out.println();
-			System.out.println(solution3(d1));
+			////System.out.println(d1.toString());
+			////System.out.println();
+			////System.out.println(solution3(d1));
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -54,7 +54,7 @@ public class main {
 					pile.push(new RectangleOuvert(j, hauteurs[j]));
 				}
 				else if(hauteurPrecedente > hauteurs[j]) {
-					//System.out.println("boucle");
+					////System.out.println("boucle");
 
 					RectangleOuvert lastRect = null;
 					RectangleOuvert lastRectSoBig = null;
@@ -66,12 +66,12 @@ public class main {
 						//fermeture de tous les rectangles ouvert avec une hauteur trop grande
 						while( !emptyList && lastRect.getHauteur() > hauteurs[j]) {
 							int largeurRectangle = j-lastRect.getColonneDebut();
-							//System.out.println("Hauteur du dernier rectangle : " + lastRect.getHauteur());
-							//System.out.println("Largeur du dernier rectangle : " + largeurRectangle);
+							////System.out.println("Hauteur du dernier rectangle : " + lastRect.getHauteur());
+							////System.out.println("Largeur du dernier rectangle : " + largeurRectangle);
 							
 							//test si le rectangle fermé est le plus grand
 							if(rMax.getAire() < (lastRect.getHauteur()*largeurRectangle)){
-							//	System.out.println("ajout rectangle ouvert");
+							//	//System.out.println("ajout rectangle ouvert");
 								rMax = new Rectangle (i-lastRect.getHauteur()+1,lastRect.getColonneDebut(),lastRect.getHauteur(),largeurRectangle);
 							}
 							lastRectSoBig = lastRect;
@@ -101,17 +101,17 @@ public class main {
 				RectangleOuvert lastRect = (RectangleOuvert) pile.pop();
 				int largeurRectangle = dallage.getNbColonnes()-lastRect.getColonneDebut();
 				
-				System.out.println("test" + lastRect.getHauteur() + "    " + largeurRectangle);
+				////System.out.println("test" + lastRect.getHauteur() + "    " + largeurRectangle);
 				
 				//test si le rectangle fermé est le plus grand
 				if(rMax.getAire() < (lastRect.getHauteur()*largeurRectangle)){
-					System.out.println("ajout rectangle ouvert");
+					////System.out.println("ajout rectangle ouvert");
 					rMax = new Rectangle (i-lastRect.getHauteur()+1,lastRect.getColonneDebut(),lastRect.getHauteur(),largeurRectangle);
 				}
 			}
 			
 		}	
-		/*System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+		/*//System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
 		+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
 		+ "aire = " + rMax.getAire());*/
 	return rMax;
@@ -155,7 +155,7 @@ public class main {
 			}
 		}	
 			
-		/*System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+		/*//System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
 				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
 				+ "aire = " + rMax.getAire());*/
 		return rMax;
@@ -205,7 +205,7 @@ public static Rectangle solution2 (Dallage dallage){
 				
 			}
 				
-		/*System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+		/*//System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
 				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
 				+ "aire = " + rMax.getAire());*/
 		return rMax;
@@ -239,7 +239,7 @@ public static Rectangle solution2 (Dallage dallage){
 				}
 			}
 				
-		/*System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
+		/*//System.out.println("x = " + rMax.getNumLigne() + " et y = " + rMax.getNumColonne() + "\n"
 				+ "hauteur = " + rMax.getHauteur() + " et largeur = " + rMax.getLargeur() + "\n"
 				+ "aire = " + rMax.getAire());*/
 		return rMax;

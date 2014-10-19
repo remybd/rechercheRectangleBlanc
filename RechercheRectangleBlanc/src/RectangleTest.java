@@ -295,61 +295,87 @@ public class RectangleTest {
 		}
 	}
 	
-	//@Test
+	@Test
 	public void AllVersionsRandomTest1() {
 		Random randomGenerator = new Random();
 		int lignes = 0;
 		int colonnes = 0;
 		int pourcentage = 0; 
 		
-		for(int i=0; i<10; i++) {
-			lignes = randomGenerator.nextInt(50);
-			colonnes = randomGenerator.nextInt(50);
-			pourcentage = randomGenerator.nextInt(100);
-			Dallage d = new Dallage(200, 200, 50);
+		for(int i=200; i<300; i++) {
+			pourcentage = 70;
+			Dallage d = new Dallage(i, i, pourcentage);
 			
+			long startTime = System.currentTimeMillis();
 			Rectangle rectSol1 = main.solution1(d);
-
+			long endTime = System.currentTimeMillis();
+			
+			System.out.println(endTime-startTime);
 			assertEquals(rectSol1.getAire(), rectSol1.getAire());
 		}
 	}
 	
-	//@Test
+	@Test
 	public void AllVersionsRandomTest2() {
 		Random randomGenerator = new Random();
 		int lignes = 0;
 		int colonnes = 0;
 		int pourcentage = 0; 
 		
-		for(int i=0; i<10; i++) {
-			lignes = randomGenerator.nextInt(50);
-			colonnes = randomGenerator.nextInt(50);
+		for(int i=1000; i<1050; i++) {
 			pourcentage = randomGenerator.nextInt(100);
-			Dallage d = new Dallage(200, 200, 99);
+			Dallage d = new Dallage(i, i, 99);
 			
+			long startTime = System.currentTimeMillis();
 			Rectangle rectSol2 = main.solution2(d);
-
+			long endTime = System.currentTimeMillis();
+			
+			System.out.println(endTime-startTime);
 			assertEquals(rectSol2.getAire(), rectSol2.getAire());
 		}
 	}
 	
 	
-	//@Test
+	@Test
 	public void AllVersionsRandomTest3() {
 		Random randomGenerator = new Random();
 		int lignes = 0;
 		int colonnes = 0;
 		int pourcentage = 0; 
 		
-		for(int i=0; i<10; i++) {
-			lignes = randomGenerator.nextInt(50);
-			colonnes = randomGenerator.nextInt(50);
+		for(int i=1000; i<1100; i++) {
 			pourcentage = randomGenerator.nextInt(100);
-			Dallage d = new Dallage(200, 200, 99);
+			Dallage d = new Dallage(i,i, 99);
 			
+			long startTime = System.currentTimeMillis();
 			Rectangle rectSol3 = main.solution3(d);
-
+			long endTime = System.currentTimeMillis();
+			
+			System.out.println(endTime-startTime);
 			assertEquals(rectSol3.getAire(), rectSol3.getAire());
+		}
+	}
+	
+	
+	@Test
+	public void AllVersionsRandomTest4() {
+		Random randomGenerator = new Random();
+		int lignes = 0;
+		int colonnes = 0;
+		int pourcentage = 0; 
+		
+		for(int i=3500; i<3600; i++) {
+			lignes = randomGenerator.nextInt(20000)+1;
+			pourcentage = randomGenerator.nextInt(100);
+			Dallage d = new Dallage(i, i, 70);
+			
+			long startTime = System.currentTimeMillis();
+			Rectangle rectSol4 = main.solution4(d);
+			long endTime = System.currentTimeMillis();
+			
+			System.out.println(endTime-startTime);
+
+			assertEquals(rectSol4.getAire(), rectSol4.getAire());
 		}
 	}
 }
