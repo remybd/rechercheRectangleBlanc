@@ -90,7 +90,14 @@ public class Paving {
 			throw new PavingImportException.ReadingHeaderSourceFileException(e);
 		}
 		
-		String[] pavingDimensions = firstBufferLine.split("\\s");
+		String[] pavingDimensions;
+		if(firstBufferLine != null) {
+			pavingDimensions = firstBufferLine.split("\\s");
+		}
+		else
+		{
+			throw new PavingImportException.EmptySourceFileException();
+		}
 		
     	if(pavingDimensions.length == 2){
     		extractPavingDimensionsFromHeader(pavingDimensions);
@@ -106,7 +113,7 @@ public class Paving {
 			 this.nbColumn = Integer.parseInt(pavingDimensions[1]);
 		}
 		catch(NumberFormatException e){
-    		throw new PavingImportException.HeaderFormatException(e);
+    		throw new PavingImportException.InvalidCharacterException(e);
 		}
 	}
 	
@@ -145,7 +152,10 @@ public class Paving {
 		return (line == null || i >= this.nbRow);
 	}
 	
-	private void ReadAndAssignBoolValues(String line, int i, int j) {
+	private void ReadAndAssignBoolValues(String line, int i, int j) throws  PavingImportException{
+		if(line.charAt(j) != '0' || line.charAt(j)!= '1')
+			throw new PavingImportException.InvalidCharacterException();
+		
 		if(line.charAt(j) == '1')
 			paving[i][j] = false;
 		else
