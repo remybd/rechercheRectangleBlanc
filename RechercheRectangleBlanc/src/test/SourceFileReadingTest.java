@@ -30,6 +30,11 @@ public class SourceFileReadingTest {
 	}
 	
 	@Test(expected=ContentFormatException.class)
+	public void givenSourceFileWithMissingLinesThenContentFormatExceptionThrown() throws PavingImportException {
+		Paving.loadPavingFromFile("testFiles/lineMissing.txt");
+	}
+	
+	@Test(expected=ContentFormatException.class)
 	public void givenSourceFileWithMissingColumnsThenContentFormatExceptionThrown() throws PavingImportException {
 		Paving.loadPavingFromFile("testFiles/columnsMissing.txt");
 	}

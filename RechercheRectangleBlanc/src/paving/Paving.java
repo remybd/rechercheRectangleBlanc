@@ -153,7 +153,7 @@ public class Paving {
 	}
 	
 	private void ReadAndAssignBoolValues(String line, int i, int j) throws  PavingImportException{
-		if(line.charAt(j) != '0' || line.charAt(j)!= '1')
+		if(line.charAt(j) != '0' && line.charAt(j)!= '1')
 			throw new PavingImportException.InvalidCharacterException();
 		
 		if(line.charAt(j) == '1')
