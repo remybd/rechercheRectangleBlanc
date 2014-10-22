@@ -265,31 +265,111 @@ public class RectangleTest {
 	@Test
 	public void AllVersionsRandomTest() {
 		Random randomGenerator = new Random();
-		int lignes = 0;
-		int colonnes = 0;
+		int nbAcces = 0;
+		int nbAccesTab = 0;
 		int pourcentage = 0; 
+		long startTime;
+		long endTime;
 		
-		for(int i=0; i<20000; i++) {
-			lignes = randomGenerator.nextInt(10) + 1;
-			colonnes = randomGenerator.nextInt(10) + 1;
-			
-			lignes = randomGenerator.nextInt(10) + 1;
-			colonnes = randomGenerator.nextInt(10) + 1;
-			pourcentage = randomGenerator.nextInt(100);
-			System.out.println("Nombre de lignes : " + lignes);
-			System.out.println("Nombre de colonnes : " + colonnes);
-			System.out.println("Pourcentage : " + pourcentage);
+		float sommeTime1;
+		float sommeTime2;
+		float sommeTime3;
+		float sommeTime4;
+		
+		long somme1;
+		long somme2;
+		long somme3;
+		long somme4;
+		
+		System.out.println("	time1		time2		time3		time4		somme1	somme2	somme3	somme4");
+		for(int i=0; i<25; i++) {
+			 sommeTime1 = 0;
+			 sommeTime2 = 0;
+			 sommeTime3 = 0;
+			 sommeTime4 = 0;
+			 
+			 somme1 = 0;
+			 somme2 = 0;
+			 somme3 = 0;
+			 somme4 = 0;
 
-			Dallage d = new Dallage(lignes, colonnes, pourcentage);
+			for(int j = 0; j <= 100; j++){
+	
+				Dallage d = new Dallage(i,i, j);
+				
+				Rectangle rectSol1 = null;
+				startTime = System.currentTimeMillis();	
+				for(int k = 0; k < 50; k++){
+					rectSol1 = main.solution1(d);
+				}
+				endTime = System.currentTimeMillis();
+				
+				sommeTime1 += ((endTime-startTime));
+				somme1 += (d.getNbreAcces()/50);
+				nbAccesTab = d.getNbreAccesTab()+ nbAcces;
+				
+				d.setNbreAcces(0);
+				d.setNbreAccesTab(0);
+				
+				
+				
+				
+				Rectangle rectSol2 = null;;
+				startTime = System.currentTimeMillis();	
+				for(int k = 0; k < 500; k++){
+					rectSol2 = main.solution2(d);
+				}
+				endTime = System.currentTimeMillis();
+				
+				sommeTime2 += ((endTime-startTime));
+				somme2 += (d.getNbreAcces()/500);
+				nbAccesTab = d.getNbreAccesTab()+ nbAcces;
+				
+				d.setNbreAcces(0);
+				d.setNbreAccesTab(0);
+				
+				
+				
+				
+				Rectangle rectSol3 = null;;
+				startTime = System.currentTimeMillis();	
+				for(int k = 0; k < 500; k++){
+					rectSol3 = main.solution3(d);
+				}
+				endTime = System.currentTimeMillis();
+				
+				sommeTime3 += ((endTime-startTime));
+				somme3 += ((d.getNbreAcces() + d.getNbreAccesTab())/500);
+				nbAccesTab = d.getNbreAccesTab()+ nbAcces;
+				
+				d.setNbreAcces(0);
+				d.setNbreAccesTab(0);
+				
+				
+				
+				
+				Rectangle rectSol4 = null;
+				startTime = System.currentTimeMillis();	
+				for(int k = 0; k < 500; k++){
+					rectSol4 = main.solution4(d);
+				}
+				endTime = System.currentTimeMillis();
+				
+				sommeTime4 += ((endTime-startTime));
+				somme4 += ((d.getNbreAcces() + d.getNbreAccesTab())/500);
+				nbAccesTab = d.getNbreAccesTab()+ nbAcces;
+				
+				d.setNbreAcces(0);
+				d.setNbreAccesTab(0);
+				
+				
+	
+				assertEquals(rectSol1.getAire(), rectSol2.getAire());
+				assertEquals(rectSol1.getAire(), rectSol3.getAire());
+				assertEquals(rectSol1.getAire(), rectSol4.getAire());
+			}
 			
-			Rectangle rectSol1 = main.solution1(d);
-			Rectangle rectSol2 = main.solution2(d);
-			Rectangle rectSol3 = main.solution3(d);
-			Rectangle rectSol4 = main.solution4(d);
-
-			assertEquals(rectSol1.getAire(), rectSol2.getAire());
-			assertEquals(rectSol1.getAire(), rectSol3.getAire());
-			assertEquals(rectSol1.getAire(), rectSol4.getAire());
+			System.out.println(i + "	" + (sommeTime1/101) + "	" + (sommeTime2/101) + "	" +	(sommeTime3/101) + "	" + (sommeTime4/101) + "	" + (somme1/101) + "	" + (somme2/101) + "	" + (somme3/101) + "	" + (somme4/101));
 			
 			
 		}

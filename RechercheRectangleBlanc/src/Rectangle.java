@@ -17,7 +17,7 @@ public class Rectangle {
 	
 	
 	
-	public boolean fullWhite(boolean dallage[][]){
+	public boolean fullWhite(Dallage dallage){
 		
 		int i = this.numLigne;
 		int j ;
@@ -29,7 +29,7 @@ public class Rectangle {
 			j = this.numColonne;
 			
 			while ( fullWhite && j < limiteLargeur ){
-				fullWhite = dallage[i][j];
+				fullWhite = dallage.getValue(i, j);
 				j++;
 			}
 			i++;

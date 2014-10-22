@@ -14,6 +14,8 @@ public class Dallage {
 	private int nbLignes;
 	private int nbColonnes;
 	
+	private int nbreAcces = 0;
+	private int nbreAccesTab = 0;
 	
 	public Dallage(int lignes, int colonnes, int pourcentage) {
 		Random randomGenerator = new Random();
@@ -141,6 +143,35 @@ public class Dallage {
 
 	public int getNbColonnes() {
 		return nbColonnes;
+	}
+	
+	public boolean getValue(int i, int j){
+		this.nbreAcces ++;
+		return this.dallage[i][j];
+	}
+
+
+
+	public int getNbreAcces() {
+		return nbreAcces;
+	}
+
+
+
+	public void setNbreAcces(int nbreAcces) {
+		this.nbreAcces = nbreAcces;
+	}
+
+
+
+	public int getNbreAccesTab() {
+		return nbreAccesTab;
+	}
+
+
+
+	public void setNbreAccesTab(int nbreAccesTab) {
+		this.nbreAccesTab = nbreAccesTab;
 	}
 	
 	
