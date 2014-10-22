@@ -415,15 +415,9 @@ public class RectangleTest {
 		int pourcentage = 0; 
 		
 		for(int i=0; i<20000; i++) {
-			lignes = randomGenerator.nextInt(10) + 1;
-			colonnes = randomGenerator.nextInt(10) + 1;
-			
-			lignes = randomGenerator.nextInt(10) + 1;
-			colonnes = randomGenerator.nextInt(10) + 1;
+			lignes = randomGenerator.nextInt(20) + 1;
+			colonnes = randomGenerator.nextInt(20) + 1;
 			pourcentage = randomGenerator.nextInt(100);
-			System.out.println("Nombre de lignes : " + lignes);
-			System.out.println("Nombre de colonnes : " + colonnes);
-			System.out.println("Pourcentage : " + pourcentage);
 
 			Paving d = Paving.newRandomPaving(lignes, colonnes, pourcentage);
 			

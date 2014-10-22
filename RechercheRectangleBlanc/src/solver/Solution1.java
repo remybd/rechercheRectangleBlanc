@@ -39,12 +39,10 @@ public class Solution1 {
 
 	private void TryASpecificRectangle(Paving paving, int i, int j, int h, int l) {
 		Rectangle r;
-		if(IsBiggerThanPrevious(h, l)){
-			r = new Rectangle(i,j,h,l);
-			
-			if(isFullWhite(paving.getPaving(), r))
-				this.solution = r;
-		}
+		r = new Rectangle(i,j,h,l);
+		
+		if(isFullWhite(paving.getPaving(), r) && IsBiggerThanPrevious(h, l))
+			this.solution = r;
 	}
 
 	private boolean IsBiggerThanPrevious(int h, int l) {

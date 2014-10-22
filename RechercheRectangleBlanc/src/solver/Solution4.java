@@ -23,6 +23,7 @@ public class Solution4 {
 		boolean [][] pavingArray = paving.getPaving();
 		int heightsArray[] = new int[paving.getNbColumn()];
 		Slack slack = new Slack();
+		int heightCase = 0;
 		
 		initializeHeightsArray(paving, heightsArray);
 		
@@ -33,13 +34,15 @@ public class Solution4 {
 				
 				updateHeight(pavingArray, heightsArray, i, j);
 				
-				if(previousHeight < heightsArray[j]) {
+				heightCase = heightsArray[j];
+				
+				if(previousHeight < heightCase) {
 					addNewUnfinishedRectangle(heightsArray, slack, j);
 				}
-				else if(previousHeight > heightsArray[j]) {
-					manageExistingRectangles(heightsArray, slack, i, j);
+				else if(previousHeight > heightCase) {
+					manageExistingRectangles(heightCase, slack, i, j);
 				}
-				previousHeight = heightsArray[j];
+				previousHeight = heightCase;
 			}
 
 			manageLastRectangles(paving, slack, i);
@@ -57,24 +60,24 @@ public class Solution4 {
 		}
 	}
 
-	private void manageExistingRectangles(int[] heightsArray, Slack slack, int i, int j) {
+	private void manageExistingRectangles(int heightCase, Slack slack, int i, int j) {
 		UnfinishedRectangle lastRectangle = null;
 		UnfinishedRectangle lastRectSoBig = null;
 		if(!slack.isEmpty()){
 			lastRectangle = (UnfinishedRectangle) slack.pop();
 			
-			closeAllRectanglesTooHigh(heightsArray, slack, i, j, lastRectangle,
+			closeAllRectanglesTooHigh(heightCase, slack, i, j, lastRectangle,
 					lastRectSoBig);
 			
 		}
 	}
 
-	private void closeAllRectanglesTooHigh(int[] heightsArray, Slack slack,
+	private void closeAllRectanglesTooHigh(int heightCase, Slack slack,
 			int i, int j, UnfinishedRectangle lastRectangle,
 			UnfinishedRectangle lastRectToBeReduced) {
 		boolean emptyList = false;
 
-		while(!emptyList && lastRectangle.getHeight() > heightsArray[j]) {
+		while(!emptyList && lastRectangle.getHeight() > heightCase) {
 			int width = j-lastRectangle.getStartColumn();
 			
 			if(isBiggerThanPrevious(lastRectangle, width)){
@@ -87,21 +90,21 @@ public class Solution4 {
 			}
 			else emptyList = true;
 		}
-		rectanglesToRepush(heightsArray, slack, j, lastRectangle, lastRectToBeReduced,
+		rectanglesToRepush(heightCase, slack, lastRectangle, lastRectToBeReduced,
 				emptyList);
 	}
 
-	private void rectanglesToRepush(int[] heightsArray, Slack slack, int j,
+	private void rectanglesToRepush(int heightCase, Slack slack,
 			UnfinishedRectangle lastRectangle, UnfinishedRectangle lastRectSoBig,
 			boolean emptyList) {
 		if(!emptyList){
 			slack.push(lastRectangle);
-			if(heightsArray[j] > 0 && lastRectangle.getHeight() < heightsArray[j]){
-				slack.push(new UnfinishedRectangle(lastRectSoBig.getStartColumn(), heightsArray[j]));
+			if(heightCase > 0 && lastRectangle.getHeight() < heightCase){
+				slack.push(new UnfinishedRectangle(lastRectSoBig.getStartColumn(), heightCase));
 			}
 		}
-		else if(heightsArray[j] > 0){
-			slack.push(new UnfinishedRectangle(lastRectSoBig.getStartColumn(), heightsArray[j]));
+		else if(heightCase > 0){
+			slack.push(new UnfinishedRectangle(lastRectSoBig.getStartColumn(), heightCase));
 		}
 	}
 
