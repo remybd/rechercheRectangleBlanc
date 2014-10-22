@@ -37,7 +37,7 @@ public class Solution4 {
 				heightCase = heightsArray[j];
 				
 				if(previousHeight < heightCase) {
-					addNewUnfinishedRectangle(heightsArray, slack, j);
+					addNewUnfinishedRectangle(heightCase, slack, j);
 				}
 				else if(previousHeight > heightCase) {
 					manageExistingRectangles(heightCase, slack, i, j);
@@ -113,8 +113,8 @@ public class Solution4 {
 		return this.solution.getArea() < (lastRectangle.getHeight()*width);
 	}
 
-	private void addNewUnfinishedRectangle(int[] heightsArray, Slack slack, int j) {
-		slack.push(new UnfinishedRectangle(j, heightsArray[j]));
+	private void addNewUnfinishedRectangle(int heightCase, Slack slack, int j) {
+		slack.push(new UnfinishedRectangle(j, heightCase));
 	}
 
 	private void updateHeight(boolean[][] pavingArray, int[] heightsArray,
