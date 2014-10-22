@@ -24,6 +24,12 @@ public class PavingImportException extends Exception {
 		public ReadingHeaderSourceFileException(Exception e) {
 			super("An error has occured while reading the header in the source file for import", e);
 		}
+	}	
+	
+	public static class EmptySourceFileException extends PavingImportException {
+		public EmptySourceFileException() {
+			super("The source file is empty");
+		}
 	}
 
 	public static class HeaderFormatException extends PavingImportException {
@@ -47,4 +53,15 @@ public class PavingImportException extends Exception {
 			super("The content doesn't correspond with the header format");
 		}
 	}
+
+	public static class InvalidCharacterException extends PavingImportException {
+		public InvalidCharacterException() {
+			super("The file contains invalid characters");
+		}
+		
+		public InvalidCharacterException(Exception e) {
+			super("The file contains invalid characters", e);
+		}
+	}
+	
 }
